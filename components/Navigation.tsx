@@ -51,7 +51,7 @@ export default function Navigation() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           scrolled
-            ? "bg-[oklch(0.13_0.008_68/0.97)] backdrop-blur-md border-b border-border shadow-xl shadow-black/20"
+            ? "bg-background/97 backdrop-blur-md border-b border-border shadow-xl shadow-black/20"
             : "bg-transparent",
         )}
       >
@@ -150,7 +150,7 @@ export default function Navigation() {
               </a>
               <Link
                 href='/contact'
-                className='ml-2 px-5 py-2.5 bg-gold text-[oklch(0.13_0.008_68)] font-body font-semibold text-sm rounded hover:bg-[oklch(0.82_0.12_75)] transition-all duration-200 hover:shadow-lg hover:shadow-gold/20 active:scale-95'
+                className='ml-2 px-5 py-2.5 bg-gold text-primary-foreground font-body font-semibold text-sm rounded hover:bg-primary-hover transition-all duration-200 hover:shadow-lg hover:shadow-gold/20 active:scale-95'
               >
                 Free Estimate
               </Link>
@@ -269,7 +269,7 @@ export default function Navigation() {
                 </a>
                 <Link
                   href='/contact'
-                  className='flex items-center justify-center w-full py-3 bg-gold text-[oklch(0.13_0.008_68)] font-body font-semibold text-sm rounded hover:bg-[oklch(0.82_0.12_75)] transition-colors'
+                  className='flex items-center justify-center w-full py-3 bg-gold text-primary-foreground font-body font-semibold text-sm rounded hover:bg-primary-hover transition-colors'
                 >
                   Get Free Estimate
                 </Link>

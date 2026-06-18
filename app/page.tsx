@@ -191,9 +191,6 @@ export default function HomePage() {
       <section className="section-pad bg-background" aria-label="Company statistics">
         <div className="container-site mx-auto">
           <AnimatedSection className="text-center mb-14">
-            <p className="font-body text-xs font-semibold uppercase tracking-widest text-gold mb-4">
-              By the numbers
-            </p>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground">
               Northwest Arkansas trusts Summit
             </h2>
@@ -216,12 +213,9 @@ export default function HomePage() {
       </section>
 
       {/* Services */}
-      <section className="section-pad bg-[oklch(0.10_0.008_68)]" id="services" aria-label="Our services">
+      <section className="section-pad bg-surface-low" id="services" aria-label="Our services">
         <div className="container-site mx-auto">
           <AnimatedSection className="mb-14">
-            <p className="font-body text-xs font-semibold uppercase tracking-widest text-gold mb-3">
-              What we build
-            </p>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground">
               Full-service remodeling,
               <br className="hidden md:block" /> start to finish
@@ -248,7 +242,7 @@ export default function HomePage() {
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 640px) 100vw, 50vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.10_0.008_68/0.9)] via-[oklch(0.10_0.008_68/0.3)] to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-overlay-dark/90 via-overlay-dark/30 to-transparent" />
                   </div>
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <div className="flex items-end justify-between gap-4">
@@ -286,19 +280,19 @@ export default function HomePage() {
                 />
               </div>
               <div className="absolute -bottom-6 -right-4 md:-right-8 bg-gold rounded-xl p-5 shadow-2xl shadow-gold/20">
-                <div className="font-display text-3xl font-bold text-[oklch(0.13_0.008_68)]">
+                <div className="font-display text-3xl font-bold text-primary-foreground">
                   {siteConfig.stats.rating}
                 </div>
                 <div className="flex gap-0.5 mt-1">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star
                       key={i}
-                      className="w-3.5 h-3.5 fill-[oklch(0.13_0.008_68)] text-[oklch(0.13_0.008_68)]"
+                      className="w-3.5 h-3.5 fill-primary-foreground text-primary-foreground"
                       aria-hidden="true"
                     />
                   ))}
                 </div>
-                <div className="font-body text-xs text-[oklch(0.20_0.008_68)] mt-1 font-semibold">
+                <div className="font-body text-xs text-primary-foreground/70 mt-1 font-semibold">
                   Google Rating
                 </div>
               </div>
@@ -306,9 +300,6 @@ export default function HomePage() {
 
             <AnimatedSection direction="right" className="space-y-8">
               <div>
-                <p className="font-body text-xs font-semibold uppercase tracking-widest text-gold mb-3">
-                  Why Summit
-                </p>
                 <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground leading-tight">
                   The contractor that earns your trust before you sign anything
                 </h2>
@@ -336,7 +327,7 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
                 <Link
                   href="/process"
-                  className="px-6 py-3 bg-gold text-[oklch(0.13_0.008_68)] font-body font-semibold text-sm rounded hover:bg-[oklch(0.82_0.12_75)] transition-all duration-200 hover:shadow-lg hover:shadow-gold/20 text-center"
+                  className='px-6 py-3 bg-gold text-primary-foreground font-body font-semibold text-sm rounded hover:bg-primary-hover transition-all duration-200 hover:shadow-lg hover:shadow-gold/20 text-center'
                 >
                   See How We Work
                 </Link>
@@ -353,13 +344,10 @@ export default function HomePage() {
       </section>
 
       {/* Gallery teaser */}
-      <section className="section-pad bg-[oklch(0.10_0.008_68)]" aria-label="Project gallery preview">
+      <section className="section-pad bg-surface-low" aria-label="Project gallery preview">
         <div className="container-site mx-auto">
           <AnimatedSection className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-10">
             <div>
-              <p className="font-body text-xs font-semibold uppercase tracking-widest text-gold mb-3">
-                Our work
-              </p>
               <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground">
                 Real projects. Real homes.
                 <br className="hidden md:block" /> Real results.
@@ -403,9 +391,6 @@ export default function HomePage() {
       <section className="section-pad bg-background" aria-label="Customer testimonials">
         <div className="container-site mx-auto">
           <AnimatedSection className="mb-12">
-            <p className="font-body text-xs font-semibold uppercase tracking-widest text-gold mb-3">
-              Client stories
-            </p>
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
               <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground">
                 What our clients say
@@ -437,12 +422,9 @@ export default function HomePage() {
       </section>
 
       {/* Service Areas */}
-      <section className="section-pad bg-[oklch(0.10_0.008_68)]" aria-label="Service areas in Northwest Arkansas">
+      <section className="section-pad bg-surface-low" aria-label="Service areas in Northwest Arkansas">
         <div className="container-site mx-auto">
           <AnimatedSection className="mb-10">
-            <p className="font-body text-xs font-semibold uppercase tracking-widest text-gold mb-3">
-              Where we build
-            </p>
             <h2 className="font-display text-3xl font-bold text-foreground">
               Serving Northwest Arkansas
             </h2>
@@ -455,7 +437,7 @@ export default function HomePage() {
               <AnimatedSection key={area.slug} delay={i * 0.06} direction="none">
                 <Link
                   href={`/service-areas/${area.slug}`}
-                  className="group flex items-center gap-2 px-4 py-2.5 rounded-full border border-border hover:border-gold/50 transition-all duration-200 hover:bg-gold/5"
+                  className="group flex items-center gap-2 px-4 py-3 rounded-full border border-border hover:border-gold/50 transition-all duration-200 hover:bg-gold/5"
                 >
                   <span className="font-body text-sm font-medium text-foreground/80 group-hover:text-gold transition-colors">
                     {area.city}, {area.state}
@@ -489,7 +471,7 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
                 href="/process"
-                className="px-7 py-3.5 bg-gold text-[oklch(0.13_0.008_68)] font-body font-semibold text-sm rounded hover:bg-[oklch(0.82_0.12_75)] transition-all duration-200 hover:shadow-lg hover:shadow-gold/20 w-full sm:w-auto text-center"
+                className="px-7 py-3.5 bg-gold text-primary-foreground font-body font-semibold text-sm rounded hover:bg-primary-hover transition-all duration-200 hover:shadow-lg hover:shadow-gold/20 w-full sm:w-auto text-center"
               >
                 See Our Full Process
               </Link>

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Phone } from "lucide-react";
@@ -12,6 +12,11 @@ const container = {
     opacity: 1,
     transition: { staggerChildren: 0.12, delayChildren: 0.2 },
   },
+};
+
+const containerReduced = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { duration: 0.4 } },
 };
 
 const item = {
@@ -27,6 +32,8 @@ const item = {
 };
 
 export default function HomeHero() {
+  const prefersReducedMotion = useReducedMotion();
+  const activeContainer = prefersReducedMotion ? containerReduced : container;
   return (
     <section
       className='relative min-h-[92vh] flex items-center overflow-hidden'
@@ -44,23 +51,14 @@ export default function HomeHero() {
           sizes='100vw'
         />
         {/* Gradient overlay: dark left / transparent right on large, full-dark on mobile */}
-        <div className='absolute inset-0 bg-gradient-to-r from-[oklch(0.10_0.008_68/0.97)] via-[oklch(0.10_0.008_68/0.75)] to-[oklch(0.10_0.008_68/0.40)] md:to-transparent' />
-        <div className='absolute inset-0 md:hidden bg-[oklch(0.10_0.008_68/0.65)]' />
+        <div className='absolute inset-0 bg-gradient-to-r from-overlay-dark/97 via-overlay-dark/75 to-overlay-dark/40 md:to-transparent' />
+        <div className='absolute inset-0 md:hidden bg-overlay-dark/65' />
       </div>
-
-      {/* Diagonal accent line */}
-      <motion.div
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{ duration: 1.2, delay: 0.8, ease: "easeOut" }}
-        className='absolute top-0 bottom-0 left-[55%] w-px bg-gold/20 origin-top hidden lg:block'
-        aria-hidden='true'
-      />
 
       {/* Content */}
       <div className='relative z-10 container-site mx-auto px-4 md:px-8 py-24 md:py-32'>
         <div className='max-w-2xl'>
-          <motion.div variants={container} initial='hidden' animate='show'>
+          <motion.div variants={activeContainer} initial='hidden' animate='show'>
             {/* Eyebrow */}
             <motion.div
               variants={item}
@@ -109,7 +107,7 @@ export default function HomeHero() {
             >
               <Link
                 href='/contact'
-                className='inline-flex items-center justify-center gap-2 px-7 py-4 bg-gold text-[oklch(0.13_0.008_68)] font-body font-bold text-sm rounded hover:bg-[oklch(0.82_0.12_75)] transition-all duration-200 hover:shadow-xl hover:shadow-gold/30 group'
+                className='inline-flex items-center justify-center gap-2 px-7 py-4 bg-gold text-primary-foreground font-body font-bold text-sm rounded hover:bg-primary-hover transition-all duration-200 hover:shadow-xl hover:shadow-gold/30 group'
               >
                 Get a Free Estimate
                 <ArrowRight
@@ -163,7 +161,8 @@ export default function HomeHero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator — hidden for reduced-motion users */}
+      {!prefersReducedMotion && (
       <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -182,6 +181,7 @@ export default function HomeHero() {
           <div className='w-1 h-1.5 rounded-full bg-gold/60' />
         </motion.div>
       </motion.div>
+      )}
     </section>
   );
 }

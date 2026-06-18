@@ -68,7 +68,7 @@ export default function BeforeAfterSlider({
           className='object-cover'
           sizes='(max-width: 768px) 100vw, 800px'
         />
-        <div className='absolute top-4 right-4 bg-gold text-[oklch(0.13_0.008_68)] font-body text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded'>
+        <div className='absolute top-4 right-4 bg-gold text-primary-foreground font-body text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded'>
           After
         </div>
       </div>
@@ -104,7 +104,7 @@ export default function BeforeAfterSlider({
           <svg
             viewBox='0 0 24 24'
             fill='none'
-            className='w-5 h-5 text-[oklch(0.13_0.008_68)]'
+            className='w-5 h-5 text-primary-foreground'
             aria-hidden='true'
           >
             <path

@@ -60,7 +60,7 @@ export default function TestimonialCard({
         </div>
         {date && (
           <time
-            className='font-body text-xs text-muted-foreground/60'
+            className='font-body text-xs text-muted-foreground'
             dateTime={date}
           >
             {new Date(date).toLocaleDateString("en-US", {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
-import { useInView } from "framer-motion";
+import { useInView, useReducedMotion } from "framer-motion";
 
 interface StatCounterProps {
   end: number;
@@ -22,10 +22,18 @@ export default function StatCounter({
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
   const hasAnimated = useRef(false);
+  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
     if (isInView && !hasAnimated.current) {
       hasAnimated.current = true;
+
+      // Skip counting animation for users who prefer reduced motion
+      if (prefersReducedMotion) {
+        setCount(end);
+        return;
+      }
+
       const startTime = performance.now();
       const step = (currentTime: number) => {
         const elapsed = currentTime - startTime;
@@ -37,11 +45,15 @@ export default function StatCounter({
       };
       requestAnimationFrame(step);
     }
-  }, [isInView, end, duration]);
+  }, [isInView, end, duration, prefersReducedMotion]);
 
   return (
     <div ref={ref} className='text-center'>
-      <div className='font-display text-4xl md:text-5xl font-bold text-gold'>
+      <div
+        className='font-display text-4xl md:text-5xl font-bold text-gold'
+        aria-live='polite'
+        aria-atomic='true'
+      >
         {prefix}
         {count.toLocaleString()}
         {suffix}

@@ -6,29 +6,29 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className='bg-[oklch(0.10_0.008_68)] border-t border-border'>
+    <footer className='bg-surface-low border-t border-border'>
       {/* CTA Strip */}
       <div className='bg-gold'>
         <div className='container-site mx-auto px-4 md:px-8 py-8 md:py-10'>
           <div className='flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left'>
             <div>
-              <p className='font-display text-2xl md:text-3xl font-bold text-[oklch(0.13_0.008_68)]'>
+              <p className='font-display text-2xl md:text-3xl font-bold text-primary-foreground'>
                 Ready to transform your home?
               </p>
-              <p className='font-body text-sm md:text-base text-[oklch(0.20_0.008_68)] mt-1'>
+              <p className='font-body text-sm md:text-base text-on-gold-muted mt-1'>
                 Free in-home consultations. No pressure, no obligation.
               </p>
             </div>
             <div className='flex flex-col sm:flex-row gap-3 shrink-0'>
               <a
                 href={`tel:${siteConfig.phoneRaw}`}
-                className='px-6 py-3 bg-[oklch(0.13_0.008_68)] text-gold font-body font-semibold text-sm rounded hover:bg-[oklch(0.18_0.008_68)] transition-colors'
+                className='px-6 py-3 bg-background text-gold font-body font-semibold text-sm rounded hover:bg-surface-hover transition-colors'
               >
                 Call {siteConfig.phone}
               </a>
               <Link
                 href='/contact'
-                className='px-6 py-3 border-2 border-[oklch(0.13_0.008_68)] text-[oklch(0.13_0.008_68)] font-body font-semibold text-sm rounded hover:bg-[oklch(0.13_0.008_68)] hover:text-gold transition-colors'
+                className='px-6 py-3 border-2 border-background text-background font-body font-semibold text-sm rounded hover:bg-background hover:text-gold transition-colors'
               >
                 Schedule Online
               </Link>
