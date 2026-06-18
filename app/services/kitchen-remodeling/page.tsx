@@ -65,45 +65,6 @@ const schema = {
   },
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "How long does a kitchen remodel take in Rogers, AR?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "A typical full kitchen remodel takes 6–10 weeks from demolition to final punch list. Cabinet lead times (4–8 weeks) are usually the long pole. We give you a detailed project schedule before you sign anything.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What does a kitchen remodel cost in Northwest Arkansas?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Kitchen remodels at Summit typically range from $25,000 for a cosmetic refresh to $85,000+ for a full custom renovation with layout changes. We provide fixed-price contracts — the number you see is the number you pay.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Do I need to leave my home during a kitchen remodel?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Most clients stay in their home during remodeling. We set up temporary kitchen stations and schedule work to minimize disruption. We seal off the work area each night and clean up daily.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Do you handle permits for kitchen remodels in Rogers, AR?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. Summit handles all permit applications and inspections. Rogers and Benton County requirements are built into our project timeline so permits never delay your project.",
-      },
-    },
-  ],
-};
-
 const included = [
   "Detailed 3D kitchen design & layout planning",
   "Custom or semi-custom cabinet installation",
@@ -160,6 +121,15 @@ const testimonials = [
 ];
 
 export default function KitchenRemodelingPage() {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://summithomeremodeling.com" },
+      { "@type": "ListItem", position: 2, name: "Services", item: "https://summithomeremodeling.com/services" },
+      { "@type": "ListItem", position: 3, name: "Kitchen Remodeling", item: "https://summithomeremodeling.com/services/kitchen-remodeling" },
+    ],
+  };
   return (
     <>
       <script
@@ -168,7 +138,7 @@ export default function KitchenRemodelingPage() {
       />
       <script
         type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       {/* Breadcrumb */}

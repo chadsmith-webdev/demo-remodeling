@@ -55,37 +55,6 @@ const schema = {
   offers: { "@type": "Offer", priceRange: "$60,000 – $250,000+" },
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "How long does a home addition take in Rogers, AR?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Most first-floor additions take 3–5 months from permit approval to completion. Second-story additions typically run 4–7 months. We build detailed project timelines before any work begins.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What does a home addition cost in Northwest Arkansas?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Home additions in Northwest Arkansas typically range from $60,000 for a simple room addition to $250,000+ for full second-story additions. Cost depends on size, finish level, and structural complexity.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Does Summit use a structural engineer for additions?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes, every addition project we build is reviewed and stamped by a licensed structural engineer. This protects your home and ensures the addition integrates properly with your existing structure.",
-      },
-    },
-  ],
-};
-
 const included = [
   "Architectural design & structural engineering",
   "Permit applications & city/county coordination",
@@ -142,6 +111,15 @@ const testimonials = [
 ];
 
 export default function HomeAdditionsPage() {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://summithomeremodeling.com" },
+      { "@type": "ListItem", position: 2, name: "Services", item: "https://summithomeremodeling.com/services" },
+      { "@type": "ListItem", position: 3, name: "Home Additions", item: "https://summithomeremodeling.com/services/home-additions" },
+    ],
+  };
   return (
     <>
       <script
@@ -150,7 +128,7 @@ export default function HomeAdditionsPage() {
       />
       <script
         type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       <nav

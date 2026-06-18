@@ -27,6 +27,8 @@ const localSchema = {
   "@type": "HomeAndConstructionBusiness",
   name: "Summit Home Remodeling — Rogers, AR",
   url: "https://summithomeremodeling.com/service-areas/rogers",
+  image: "https://summithomeremodeling.com/images/og-image.jpg",
+  priceRange: "$$",
   telephone: siteConfig.phoneRaw,
   address: {
     "@type": "PostalAddress",
@@ -57,36 +59,20 @@ const localSchema = {
   },
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "Is Summit Home Remodeling licensed to work in Rogers, AR?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: `Yes. Summit holds ${siteConfig.license} and is fully insured with $2M general liability and workers' compensation for all employees.`,
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What remodeling services does Summit offer in Rogers, AR?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Summit provides kitchen remodeling, bathroom remodeling, home additions (master suites, sunrooms, second-story), and basement finishing throughout Rogers, AR.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "How do I get a remodeling estimate in Rogers?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Call (479) 319-4200 or complete our online form. A Summit project manager will schedule a free in-home consultation and deliver a fixed-price estimate within 48 hours of your design sign-off.",
-      },
-    },
-  ],
-};
+const faqs = [
+  {
+    name: "Is Summit Home Remodeling licensed to work in Rogers, AR?",
+    text: `Yes. Summit holds ${siteConfig.license} and is fully insured with $2M general liability and workers' compensation for all employees.`,
+  },
+  {
+    name: "What remodeling services does Summit offer in Rogers, AR?",
+    text: "Summit provides kitchen remodeling, bathroom remodeling, home additions (master suites, sunrooms, second-story), and basement finishing throughout Rogers, AR.",
+  },
+  {
+    name: "How do I get a remodeling estimate in Rogers?",
+    text: "Call (479) 319-4200 or complete our online form. A Summit project manager will schedule a free in-home consultation and deliver a fixed-price estimate within 48 hours of your design sign-off.",
+  },
+];
 
 const testimonials = [
   {
@@ -116,7 +102,15 @@ export default function RogersServiceAreaPage() {
       />
       <script
         type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://summithomeremodeling.com" },
+            { "@type": "ListItem", position: 2, name: "Service Areas", item: "https://summithomeremodeling.com/service-areas" },
+            { "@type": "ListItem", position: 3, name: "Rogers, AR", item: "https://summithomeremodeling.com/service-areas/rogers" },
+          ],
+        }) }}
       />
 
       <nav
@@ -246,7 +240,7 @@ export default function RogersServiceAreaPage() {
                 Rogers, AR remodeling FAQs
               </h2>
               <div className='space-y-4'>
-                {faqSchema.mainEntity.map((faq) => (
+                {faqs.map((faq) => (
                   <div
                     key={faq.name}
                     className='border border-border rounded-lg p-5 hover:border-gold/30 transition-colors'
@@ -255,7 +249,7 @@ export default function RogersServiceAreaPage() {
                       {faq.name}
                     </h3>
                     <p className='font-body text-sm text-muted-foreground leading-relaxed'>
-                      {faq.acceptedAnswer.text}
+                      {faq.text}
                     </p>
                   </div>
                 ))}

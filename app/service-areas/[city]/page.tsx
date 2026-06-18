@@ -111,6 +111,8 @@ export default async function ServiceAreaPage({
     "@type": "HomeAndConstructionBusiness",
     name: `Summit Home Remodeling — ${data.title}, AR`,
     url: `https://summithomeremodeling.com/service-areas/${city}`,
+    image: "https://summithomeremodeling.com/images/og-image.jpg",
+    priceRange: "$$",
     telephone: siteConfig.phoneRaw,
     address: {
       "@type": "PostalAddress",
@@ -129,28 +131,16 @@ export default async function ServiceAreaPage({
     },
   };
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: `Does Summit Home Remodeling serve ${data.title}, AR?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: `Yes. Summit serves all of ${data.county}, including ${data.title}. Our headquarters in Rogers, AR is approximately ${siteConfig.serviceAreas.find((a) => a.city === data.title)?.distance ?? "nearby"} from ${data.title}.`,
-        },
-      },
-      {
-        "@type": "Question",
-        name: `What remodeling services are available in ${data.title}, AR?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: `Summit offers kitchen remodeling, bathroom remodeling, home additions, and basement finishing for homeowners in ${data.title}, AR. All projects use fixed-price contracts and come with a 5-year workmanship warranty.`,
-        },
-      },
-    ],
-  };
+  const faqs = [
+    {
+      name: `Does Summit Home Remodeling serve ${data.title}, AR?`,
+      text: `Yes. Summit serves all of ${data.county}, including ${data.title}. Our headquarters in Rogers, AR is approximately ${siteConfig.serviceAreas.find((a) => a.city === data.title)?.distance ?? "nearby"} from ${data.title}.`,
+    },
+    {
+      name: `What remodeling services are available in ${data.title}, AR?`,
+      text: `Summit offers kitchen remodeling, bathroom remodeling, home additions, and basement finishing for homeowners in ${data.title}, AR. All projects use fixed-price contracts and come with a 5-year workmanship warranty.`,
+    },
+  ];
 
   return (
     <>
@@ -160,7 +150,15 @@ export default async function ServiceAreaPage({
       />
       <script
         type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://summithomeremodeling.com" },
+            { "@type": "ListItem", position: 2, name: "Service Areas", item: "https://summithomeremodeling.com/service-areas" },
+            { "@type": "ListItem", position: 3, name: `${data.title}, AR`, item: `https://summithomeremodeling.com/service-areas/${city}` },
+          ],
+        }) }}
       />
 
       <nav
@@ -269,7 +267,7 @@ export default async function ServiceAreaPage({
                 {data.title} remodeling FAQs
               </h2>
               <div className='space-y-4'>
-                {faqSchema.mainEntity.map((faq) => (
+                {faqs.map((faq) => (
                   <div
                     key={faq.name}
                     className='border border-border rounded-lg p-5 hover:border-gold/30 transition-colors'
@@ -278,7 +276,7 @@ export default async function ServiceAreaPage({
                       {faq.name}
                     </h3>
                     <p className='font-body text-sm text-muted-foreground leading-relaxed'>
-                      {faq.acceptedAnswer.text}
+                      {faq.text}
                     </p>
                   </div>
                 ))}

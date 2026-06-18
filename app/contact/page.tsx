@@ -44,7 +44,7 @@ export default function ContactPage() {
             <p className='font-body text-base text-muted-foreground max-w-xl mx-auto'>
               Fill out the form and we&apos;ll reach out within one business day
               to schedule your free in-home estimate. Prefer to call? We&apos;re
-              available Monday–Saturday, 7am–6pm.
+              available Monday–Friday 8am–6pm, Saturday 9am–4pm.
             </p>
           </AnimatedSection>
         </div>

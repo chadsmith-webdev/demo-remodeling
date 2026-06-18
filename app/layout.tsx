@@ -3,6 +3,22 @@ import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://summithomeremodeling.com/#website",
+  name: "Summit Home Remodeling",
+  url: "https://summithomeremodeling.com",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: "https://summithomeremodeling.com/?s={search_term_string}",
+    },
+    "query-input": "required name=search_term_string",
+  },
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://summithomeremodeling.com"),
   title: {
@@ -60,6 +76,10 @@ export default function RootLayout({
   return (
     <html lang='en' className='h-full antialiased'>
       <body className='min-h-full flex flex-col bg-background text-foreground'>
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
         <Navigation />
         <main className='flex-1'>{children}</main>
         <Footer />

@@ -56,37 +56,6 @@ const schema = {
   offers: { "@type": "Offer", priceRange: "$30,000 – $90,000" },
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "How long does basement finishing take in Rogers, AR?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "A standard basement finish takes 8–14 weeks depending on complexity. Adding a bathroom, wet bar, or home theater system extends the timeline. We build a detailed schedule before work begins.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "How much does it cost to finish a basement in Northwest Arkansas?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Basement finishing in Northwest Arkansas typically runs $30,000 for a basic open-plan finish to $90,000+ for a fully custom space with home theater, wet bar, and full bathroom. All Summit contracts are fixed price.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Do you first test for moisture before finishing a basement?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Every time. Before we frame a single wall, we conduct moisture testing and inspect the foundation for cracks, efflorescence, or water intrusion. We will not finish a wet basement — we'll address the problem first.",
-      },
-    },
-  ],
-};
-
 const included = [
   "Moisture assessment & waterproofing review",
   "Egress window installation (if required)",
@@ -143,6 +112,15 @@ const testimonials = [
 ];
 
 export default function BasementFinishingPage() {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://summithomeremodeling.com" },
+      { "@type": "ListItem", position: 2, name: "Services", item: "https://summithomeremodeling.com/services" },
+      { "@type": "ListItem", position: 3, name: "Basement Finishing", item: "https://summithomeremodeling.com/services/basement-finishing" },
+    ],
+  };
   return (
     <>
       <script
@@ -151,7 +129,7 @@ export default function BasementFinishingPage() {
       />
       <script
         type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       <nav

@@ -113,6 +113,8 @@ const homeSchema = {
   "@id": "https://summithomeremodeling.com/#business",
   name: "Summit Home Remodeling",
   url: "https://summithomeremodeling.com",
+  image: "https://summithomeremodeling.com/images/og-image.jpg",
+  priceRange: "$$",
   telephone: siteConfig.phoneRaw,
   email: siteConfig.email,
   description: siteConfig.description,
@@ -155,7 +157,6 @@ const homeSchema = {
     name: area.city,
     containedInPlace: { "@type": "State", name: "Arkansas" },
   })),
-  priceRange: "$$",
   sameAs: [
     siteConfig.social.facebook,
     siteConfig.social.instagram,

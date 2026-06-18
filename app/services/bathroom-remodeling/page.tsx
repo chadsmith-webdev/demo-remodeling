@@ -56,37 +56,6 @@ const schema = {
   offers: { "@type": "Offer", priceRange: "$12,000 – $55,000" },
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "How long does a bathroom remodel take in Rogers, AR?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "A full master bathroom remodel typically takes 3–5 weeks. A guest bath or powder room refresh can be done in 1–2 weeks. We sequence our trades so there's no waiting between phases.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What does a bathroom remodel cost in Northwest Arkansas?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Bathroom remodels at Summit range from $12,000 for a hall bath update to $55,000+ for a full luxury master suite. All contracts are fixed-price with no surprise change orders.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Will I be able to use my bathroom during the remodel?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "We sequence work to minimize downtime. If you have only one bathroom, we'll discuss your situation and find a plan. Most master bath projects don't affect the hall or guest bath.",
-      },
-    },
-  ],
-};
-
 const included = [
   "Full demolition & debris removal",
   "Shower pan, tile & glass enclosure installation",
@@ -143,6 +112,15 @@ const testimonials = [
 ];
 
 export default function BathroomRemodelingPage() {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://summithomeremodeling.com" },
+      { "@type": "ListItem", position: 2, name: "Services", item: "https://summithomeremodeling.com/services" },
+      { "@type": "ListItem", position: 3, name: "Bathroom Remodeling", item: "https://summithomeremodeling.com/services/bathroom-remodeling" },
+    ],
+  };
   return (
     <>
       <script
@@ -151,7 +129,7 @@ export default function BathroomRemodelingPage() {
       />
       <script
         type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       <nav

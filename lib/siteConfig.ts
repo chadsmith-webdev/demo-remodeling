@@ -70,7 +70,7 @@ export const siteConfig = {
   ],
   serviceAreas: [
     {
-      slug: "rogers-ar",
+      slug: "rogers",
       city: "Rogers",
       state: "AR",
       zip: "72756",
@@ -80,7 +80,7 @@ export const siteConfig = {
       isPrimary: true,
     },
     {
-      slug: "bentonville-ar",
+      slug: "bentonville",
       city: "Bentonville",
       state: "AR",
       zip: "72712",
@@ -90,7 +90,7 @@ export const siteConfig = {
       isPrimary: false,
     },
     {
-      slug: "lowell-ar",
+      slug: "lowell",
       city: "Lowell",
       state: "AR",
       zip: "72745",
@@ -100,7 +100,7 @@ export const siteConfig = {
       isPrimary: false,
     },
     {
-      slug: "cave-springs-ar",
+      slug: "cave-springs",
       city: "Cave Springs",
       state: "AR",
       zip: "72718",
@@ -110,7 +110,7 @@ export const siteConfig = {
       isPrimary: false,
     },
     {
-      slug: "springdale-ar",
+      slug: "springdale",
       city: "Springdale",
       state: "AR",
       zip: "72764",
@@ -120,7 +120,7 @@ export const siteConfig = {
       isPrimary: false,
     },
     {
-      slug: "fayetteville-ar",
+      slug: "fayetteville",
       city: "Fayetteville",
       state: "AR",
       zip: "72701",
